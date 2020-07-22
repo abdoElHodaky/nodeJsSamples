@@ -1,0 +1,312 @@
+<%-include('inc',{title:"Settings"})%>
+<div class="flex-sm-row-reverse row">
+	<div class="col-xs-offset-1 col-xs-3">
+		<ul class="nav nav-pills nav-stacked">
+		  <li class="dropdown">
+		    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Own
+		    <span class="caret"></span></a>
+		    <ul class="dropdown-menu">
+		      <li><a href="#info" data-toggle="tab">Info</a></li>
+		     	<%if(type=="owner"){%>
+		      	<li><a href="#shops" data-toggle="tab">Shop</a></li>
+		      	<%}%>
+		    </ul>
+		  </li>
+	<%if(type=="owner"){%>	  
+  <li class="dropdown">
+		    <a class="dropdown-toggle" data-toggle="dropdown" href="#">App
+		    <span class="caret"></span></a>
+		    <ul class="dropdown-menu">
+		    	<li>
+		    	<a href="#user" data-toggle="tab">User</a>
+		    	</li>
+		    </ul>						    
+	</li>
+  <%}%>
+  <li><a href="/">Back</a></li>
+</ul>
+	</div>
+	 <div class="col-xs-offset-4 col-xs-push-5">
+	 	<div class="flex-lg-row row">
+	 	<div class="col-xs-8">
+	 		<div class="tab-content">
+							  <div id="info" class="tab-pane fade in active">
+							     <div class="panel panel-default">
+								<div class="panel-heading">
+							  		<h3 class="heading">Info</h3>
+							  	</div>
+								 <div class="panel-body">
+								<a class="btn btn-block btn-secondary glyphicon glyphicon-credit-card" data-toggle="collapse" href="#Credit">Credit</a>
+								<a class="btn btn-block btn-secondary glyphicon glyphicon-lock" data-toggle="collapse" href="#Pass">Pass</a>
+								 		<div class="row">
+								 			<form class="form-horizontial" method="post">
+								 			<div class="collapse" id="Credit">
+										 			<div class="form-group-md row">
+													<div class="col-xs-8">
+													<input type="hidden" class="form-control input-md"  name="creditUser" value="<%=user%>">
+													</div>
+												</div>
+												<div class="dividor"></div>
+												<div class="form-group-md row">
+												<div class="col-xs-2">
+													<label class="control-label">FName</label>
+												</div>
+													<div class="col-xs-8">
+													<input type="text" class="form-control input-md" name="creditFName" value="<%=PA.FirstName%>">
+													</div>
+												</div>
+												<div class="dividor"></div>
+												<div class="form-group-md row">
+												<div class="col-xs-2">
+													<label class="control-label">LName</label>
+												</div>
+													<div class="col-xs-8">
+													<input type="text" class="form-control input-md" name="creditLName" value="<%=PA.LastName%>">
+													</div>
+												</div>
+												<div class="form-group-md row">
+												<div class="col-xs-2">
+													<label class="control-label">CreditNumber</label>
+												</div>
+													<div class="col-xs-8">
+													<input type="number" class="form-control input-md" name="creditNumber" value="<%=PA.CreditNumber%>">
+													</div>
+												</div>
+												<div class="form-group-md row">
+												<div class="col-xs-2">
+													<label class="control-label">CCV</label>
+												</div>
+													<div class="col-xs-8">
+													<input type="text" class="form-control input-md" name="creditCCV" value="<%=PA.CVV%>">
+													</div>
+												</div>
+												<div class="form-group-md row">
+												<div class="col-xs-2">
+													<label class="control-label">ExpireDate</label>
+												</div>
+													<div class="col-xs-8">
+													<input type="text" class="form-control input-md" name="Expire" value="<%=PA.Expires%>">
+													</div>
+												</div>
+												<div class="form-group-md row">
+												<div class="col-xs-2">
+													<label class="control-label">BalanceD</label>
+												</div>
+													<div class="col-xs-8">
+													<input type="number" class="form-control input-md" name="creditBalance" value="<%=PA.Balance%>">
+													</div>
+												</div>
+										</div>
+										<div class="collapse" id="Pass">
+											<div class="form-group-md row">
+												<div class="col-xs-2">
+													<label class="control-label">OldPass</label>
+												</div>
+													<div class="col-xs-8">
+													<input type="password" class="form-control input-md" name="OldPass" value="">
+													</div>
+												</div>
+												<div class="divider"></div>
+												<div class="form-group-md row">
+												<div class="col-xs-2">
+													<label class="control-label">NewPass</label>
+												</div>
+													<div class="col-xs-8">
+													<input type="password" class="form-control input-md" name="NewPass" value="">
+													</div>
+												</div>		
+										</div>
+											<div class="panel-footer">
+										<div class="form-group-md row">
+									 	<div class="col-xs-12">
+										 	<button type="submit" class="btn btn-md btn-primary btn-block">Update</button>
+										 </div>
+									 </div>
+									 </div>
+								 			</form>	
+								 		</div>		
+								 </div>
+								 
+								</div>
+							  </div>
+							  <div id="shops" class="tab-pane">
+							     <div class="panel panel-default">
+								<div class="panel-heading">
+							  		<h3 class="heading">Shops</h3>
+							  	</div>
+								 <div class="panel-body">
+								 <table>
+								 	<tbody>
+								 <%for(var i in Shops){%>
+									<tr><td><img src="<%=Shops[i].Logo%>" width="200" height="200" ></td><td><div class="btn-group-md">
+										<a href="#Curr<%=Number(i)+1%>" data-toggle="collapse" class="btn btn-link btn-block">setCurrency</a>
+									</div>
+									<div class="collapse col-sm-10" id="Curr<%=Number(i)+1%>">
+										<input type="text" class="form-control" class="input-sm" name="Curr<%=Number(i)+1%>">
+									</div>			
+									</td></tr>
+								 <%}%>	
+								 	</tbody>
+								 </table>
+								 </div>
+									 </div> 
+								</div>
+								<div class="tab-pane"id="user">
+									<div class="row">
+									<div class="panel panel-secondary">
+										<div class="panel-heading">
+											
+										</div>
+										<div class="panel-body">
+												<form class="form-horizontal">
+										<div class="form-group row">
+											<div class="col-sm-12">
+												<div class="col-sm-3">
+												<label for="Name" class="control-label">UserName</label>
+											</div>
+											
+											<div class="col-md-5">
+												<input type="text" name="Name" class="form-control" required placeholder="Type UserName">
+											</div>
+											</div>
+														
+										</div>
+										<div class="check col-sm-12 col-sm-offset-10">
+						                     <input value="On" id="checkU" type="checkbox" class="col-sm-5 form-check" data-toggle="collapse" data-target="#u">
+						                     <label for="checkU" class="col-sm-5">UserAddition</label>
+						                </div>
+											<div class="collapse  panel-collapse col-sm-12" id="u">
+											<div class="form-group row">
+											<div class="col-sm-3">
+												<label for="Password" class="control-label">Password</label>
+											</div>
+											
+											<div class="col-md-5">
+												<input type="password" name="Password" class="form-control" required placeholder="Type Password">
+											</div>			
+										</div>
+										<div class="form-group row">
+											<div class="col-sm-3">
+												<label for="Email" class="control-label">Email</label>
+											</div>
+											
+											<div class="col-md-5">
+												<input type="email" name="Email" class="form-control" required placeholder="Type Email">
+											</div>			
+										</div>
+										<div class="form-group row">
+											<div class="col-sm-3">
+												<label for="Type" class="control-label">Type</label>
+											</div>
+											
+											<div class="col-md-5">
+												<select name="Type" class="form-control">
+													<option>Owner</option>
+													<option>Client</option>
+												</select>
+											</div>			
+										</div>
+										<div class="check col-sm-12 col-sm-offset-0">
+						                     <input value="On" id="checkC" type="checkbox" class="col-sm-5 form-check" data-toggle="collapse" data-target="#credit">
+						                     <label for="checkC" class="col-sm-5">UserCredit</label>
+						                </div>
+											<div class="collapse  panel-collapse col-sm-12" id="credit">
+											<div class="form-group row">
+											<div class="col-sm-3">
+												<label for="CreditOwner" class="control-label">CreditOwner</label>
+											</div>
+											
+											<div class="col-md-5">
+												<input type="text" name="CreditOwner" class="form-control" required placeholder="Type CreditFullName">
+											</div>			
+										</div>
+											<div class="form-group row">
+											<div class="col-sm-3">
+												<label for="CreditNumber" class="control-label">CreditNumber</label>
+											</div>
+											
+											<div class="col-md-5">
+												<input type="number" name="CreditNumber" class="form-control" required placeholder="Type CreditNumber">
+											</div>			
+										</div>
+										<div class="form-group row">
+											<div class="col-sm-3">
+												<label for="CreditType" class="control-label">CreditType</label>
+											</div>
+											
+											<div class="col-md-5">
+												<select class="form-control" name="CreditType">
+													<option>VISA</option>
+													<option>masterCard</option>
+												</select>
+											</div>			
+										</div>
+										<div class="form-group row">
+											<div class="col-sm-3">
+												<label for="Expires" class="control-label">Expires</label>
+											</div>
+											
+											<div class="col-md-5">
+												<input type="text" name="Expires" class="form-control" required placeholder="Type ExpiresDate">
+											</div>			
+										</div>
+										</div>
+									</div>
+
+										<div class="divider"></div>
+										</div>
+										<div class="panel-footer">
+											<div class="form-group row">
+											<div class="col-sm-12">
+												<button class="btn btn-md btn-primary btn-block" type="submit">
+													Upgrade/Add
+												</button>
+											</div>		
+										</div>
+									</form>
+										</div>										
+									</div>							
+															
+									</div>									
+								</div>
+							  </div>  
+	 	</div>									
+					
+		</div>	
+	</div>									
+</div>
+
+<script type="text/javascript">
+		var action="";
+		$("[data-toggle=collapse]").click((event)=>action=$(event.target).attr("href").replace("#",""));
+		credit={}
+		$("#info form").submit((event)=>{
+			event.preventDefault();
+			if (action=="Pass") {
+				$.post("/<%=user%>/settings?action="+action,{
+					OldPass:$("input[name=OldPass]").val(),
+					NewPass:$("input[name=NewPass]").val(),
+					CNewPass:$("input[name=CNewPass]").val()
+				})
+			}
+			if (action=="Credit") {
+				$("#info input[name^=credit]").toArray().forEach((b)=>{
+					
+					credit[b.name]=b.value;
+					
+				})
+				$.post("/<%=user%>/settings?action="+action,credit);
+			}
+		})
+		$("#u form").submit((event)=>{
+			event.preventDefault();
+			if (action=="user") {
+				body={}
+				$("#u input").toArray().forEach((b)=>{
+					body[b.name]=b.value;	
+				})
+				$.post("/<%=user%>/settings?action="+action,body)
+			}
+			
+		})
+</script>							

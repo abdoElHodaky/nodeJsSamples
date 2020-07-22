@@ -1,0 +1,106 @@
+<div class="container col-lg-10  col-md-12  col-xs-12 ">
+            <% for(var i in products){ %>
+                <div class="col-lg-4 col-md-10 col-xs-10  col-sm-10 ">
+                 <div class="check col-sm-2">
+                     <input type="checkbox" value="<%= products[i].ProductId%>" id="check<%= products[i].ProductId %>" />
+                     <label for="check<%= products[i].ProductId %>"></label>
+                </div>
+                    <div class="thumbnail">
+                    
+                    <img class="img-responsive" src="<%= products[i].ProductThumbnail %>">
+                    <div class="caption-full">
+                        <h4 class="pull-right"><%= products[i].Price %></h4>
+                        <h4><a href="#" title="<%= products[i].ProductDesc %>" data-toggle="tooltip" data-placement="bottom"><%= products[i].ProductName %></a>
+                        </h4>
+                    </div>        
+                        <div class="pull-right">
+                            <menu class="btn-group input-group-sm">
+                            <%if(type=="owner"){%>
+                            <menuitem><a class="btn-primary btn   glyphicon glyphicon-pencil btn-sm" href="/<%= shopName %>/products/edit?id=<%= products[i].ProductId %>"></a></menuitem>
+                            <menuitem><a class="btn btn-danger btn-sm glyphicon glyphicon-remove" href="/<%= shopName %>/products/delete?id=<%= products[i].ProductId %>"></a></menuitem>
+                            <%}%>
+                            <menuitem>
+                              <!--a class="btn btn-default" def="SpecsP" href="/<%#=shopName%>/<%#=products[i].ProductName%>/specs">Specs</a>
+                            </menuitem-->
+                            <menuitem><a class="btn btn-default glyphicon glyphicon-eye-open" def="ViewP" href="/<%=shopName%>/<%=products[i].ProductName%>/View"></a> </menuitem>
+                            <menuitem>
+                                <!--a href="/<%#= shopName %>/products/collect?id=<%#= products[i].ProductId %>" class="glyphicon glyphicon-plus btn btn-warning btn-sm" def="AddtoCart"></a-->
+                                <dir type="hidden" style="display:none">
+                                    <%
+                                    var s=[];
+                                    var c=encodeURIComponent("/"+shopName+"/products/"+"collect?id="+products[i].ProductId)
+                                    for(i in c){
+                                      s[i]=String.fromCharCode(c.charCodeAt(i)+5)
+                                    }
+                                    %>
+                                    <%=s.join("")%>
+                                </dir>
+                            </menuitem>
+                            <menuitem>
+                              <div class="input-md  col-sm-5 col-xs-5 col-lg-4">
+                                <input type="number" def="inc" class="form-control" min="0" max="10">
+                              </div>
+                            </menuitem>           
+                            </menu>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix visible-xs"></div>
+                <div class="clearfix visible-sm"></div>
+                <div class="clearfix visible-md"></div>
+            <!--/div-->
+            <% } %>
+            <%if(type=="owner"){%>
+            <div class="col-lg-4 col-md-10 col-xs-10  col-sm-10">
+            <div class="card">
+               
+                <form class="form-horizontial" method="post" accept-charset="utf-8" action="/<%=shopName%>/products/add">
+                      <div class="thumbnail">
+                        <div class="alert">
+                        <%if(flash.action=="addP"&&errors){%>
+                        <%for(i in errors){%>
+                            <div class="alert <%=flash.class%>">
+                              <%=errors[i].msg%>
+                            </div>
+                        <%}%>
+                        <%}%>
+                        </div>
+                        <img src="http://placehold.it/200x200" alt="200x200" class="img-responsive" id="ALogo">
+                        <div class="caption">
+                            <div class="form-group">
+                                  <label for="ProductName">ProductName</label>
+                            <h3><input class="form-control" placeholder="ProductName" name="ProductName" type="text"></h3>
+                            <div class="divider"></div>
+                             <label for="ProductPrice">ProductPrice</label>
+                            <h3><input class="form-control" placeholder="ProductPrice" name="Price" type="number"></h3>
+                            <div class="divider"></div>
+                             <label for="ProductQuanity">Quantity</label>
+                            <h3><input class="form-control" placeholder="ProductQuantity" name="Quantity" type="number"></h3>
+                            <div class="divider"></div>
+                            <label for="Cat" class="control-label col-sm-4">Cat</label>
+                            <h3>
+                                  <select class="form-control" name="Cat">
+                                          <%for(var i in Cats){%>
+                                          <option><%= Cats[i].Cat %></option>
+                                          <%}%>
+                                  </select>
+                              </h3>
+                              <div class="divider"></div>
+                              <label for="ProductDesc" class="control-label col-sm-4">Desc</label>
+                                  <textarea name="ProductDesc" class="form-control"></textarea>
+                               <h3><input type="hidden" name="ProductThumbnail"></h3>   
+                                <div class="divider"></div>
+                                <label for="SpecName" class="control-label col-sm-4">SpecName</label>
+                                  <input name="SpecName" class="form-control">
+                                   <label for="SpecValue" class="control-label col-sm-4">SpecValue</label>
+                                   <input name="SpecValue" class="form-control">
+                               <div class="divider"></div> 
+                              <p><input class="btn btn-primary" value="Save" type="submit"></p>
+                            </div>
+                        </div>
+                      </div>
+                    </form>
+            </div>   
+             </div>
+             <%}%>
+            </div> 

@@ -1,0 +1,46 @@
+<div class="col-sm-12 col-md-12 col-lg-12">
+	<div class="col-sm-12 col-md-12 col-lg-12">
+		<div>
+			<table class="table col-sm-12 row">
+			<caption>Bill&nbsp;of(<%= BillName %>)&nbsp;</caption>
+				  <thead class="thead thead-inverse">
+				    <tr>
+				      <th>#</th>
+				      <th>ProductName</th>
+				      <th>Price</th>
+				      <th>Quantity</th>
+				      <th>Cat</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  </tbody>
+			</table>
+			<footer>
+					<a class="btn btn-primary" href="/<%=shopName%>/pay/<%=BillModel%>">Go</a>
+								
+				  </footer>	
+				  <img class="img-responsive rounded" src="/images/sign.gif">	
+		</div>
+	</div>
+<script type="text/javascript">
+socket.emit('getbps',
+{
+	BillModel:session.Bill,ClientName:session.client
+});
+var ps=[],q=[];
+socket.on('bps',(bps,quan)=>{
+	ps=bps;q=quan
+	var total=0;
+	var html="";
+	for(var i in ps){
+			var price=(Number(ps[i].Price.toString())*Number(q[i].toString()));
+			html+="<tr>"+"<td>"+i.toString()+
+				"</td><td><img src="+atob(btoa(String.fromCharCode.apply(null, new Uint8Array(ps[i].ProductThumbnail))))+" wdith='20' height='20'>"+ps[i].ProductName+"</td><td>"+ps[i].Price.toString()+"</td>"+"<td>"+q[i]+"</td>"
+				+"<td>"+ps[i].Cat+"</td></tr>"
+			total+=price;
+	}
+	$("table tbody").html(html);
+	$("table tbody").append("<tr><td>Total</td><td>"+total.toString()+"</td></tr>")
+})
+</script>
+</div>		

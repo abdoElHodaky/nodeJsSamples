@@ -1,0 +1,84 @@
+<html style="overflow: hidden;"><head>
+<title>E-Commerce</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keywords" content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<link href="/stylesheets/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<!-- Custom Theme files -->
+<link href="/stylesheets/css.css" rel="stylesheet" type="text/css" media="all">
+<!--js-->
+<script src="/javascripts/jquery-2.1.1.min.js"></script>
+<!--icons-css-->
+<link href="/stylesheets/font-awesome.css" rel="stylesheet"> 
+<!--Google Fonts-->
+<link href="//fonts.googleapis.com/css?family=Carrois+Gothic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<script>var socket=io();</script>
+<%-include('../loader')%>
+<!--static chart-->
+</head>
+<body class="container">
+<div class="login-page">
+    <div class="login-main">  	
+    	 <div class="login-head">
+    	 		<%if(flash.type=='error'){%>
+					<%if(flash.messages){%>
+						<%var errors=flash.messages;%>
+						<%for(var i in errors ){%>
+						<div class="alert alert-danger alert-dismissable">
+		                <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
+		                <%=errors[i].msg%> </div>
+				<%}}}%>
+			</div>
+			<div class="login-block">
+				<form method="post" action="/admin/">
+					<input name="userName" placeholder="UserName" required="" type="text">
+					<input name="password" class="lock" placeholder="Password" type="password">
+					<div class="forgot-top-grids">
+						<div class="forgot-grid">
+							<ul>
+								<li>
+									<input id="brand1" value="" type="checkbox">
+									<label for="brand1"><span></span>Remember me</label>
+								</li>
+							</ul>
+						</div>
+						<div class="forgot">
+							<a href="/account/recovery">Forgot password?</a>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<input value="Login" type="submit">		
+					<!--h2>or login with</h2>
+					<div class="login-icons">
+						<ul>
+							<li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#" class="google"><i class="fa fa-google-plus"></i></a></li>						
+						</ul>
+					</div-->
+					<h5><a href="/">Go Back to Home</a></h5>
+				</form>
+			</div>
+      </div>
+</div>
+<!--inner block end here-->
+<!--copy rights start here-->
+<div class="copyrights">
+	 <p>© 2016 Shoppy. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+</div>	
+<!--COPY rights end here-->
+
+<!--scrolling js-->
+		<script src="/javascripts/jquery.nicescroll.js"></script>
+		<script src="/javascripts/scripts.js"></script><div id="ascrail2000" class="nicescroll-rails" style="width: 6px; z-index: 1000; background: rgb(255, 255, 255) none repeat scroll 0% 0%; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; opacity: 0;"><div style="position: relative; top: 1px; float: right; width: 6px; height: 918px; background-color: rgb(104, 174, 0); border: 0px none; background-clip: padding-box; border-radius: 10px;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails" style="height: 6px; z-index: 1000; background: rgb(255, 255, 255) none repeat scroll 0% 0%; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; opacity: 0;"><div style="position: relative; top: 0px; height: 6px; width: 1280px; background-color: rgb(104, 174, 0); border: 0px none; background-clip: padding-box; border-radius: 10px;"></div></div>
+		<!--//scrolling js-->
+<script src="/javascripts/bootstrap.js"> </script>	
+<!-- mother grid end here-->	
+</body>
+</html>

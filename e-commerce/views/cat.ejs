@@ -1,0 +1,37 @@
+
+    <% for(var i in Cats) {%>
+    <li class="col-xs-offset-2 dropdown-item">
+    	<%if(type=="owner"){%>
+    	<a href="/<%= shopName %>/cats/delete?name=<%= Cats[i].Cat %>" class="glyphicon glyphicon-remove btn-danger btn-xs btn" ></a>
+    	<%}%>
+        <a href="/<%= shopName %>/products/<%= Cats[i].Cat %>" data-toggle="tooltip" data-placement="right" title="<%= Cats[i].CatDesc %>" data-toggle="dropdown" ><%= Cats[i].Cat %></a>
+    </li>
+    <div class="divider"></div>
+    <%}%>
+    <%if(type=="owner"){%>
+    <li class="col-sm-offset-2 dropdown-item">
+    	<div class="card">
+    	<form class="form-horizontial" method="post" action="/cats/add?shopName=<%=shopName%>">
+    	       <div class="alert">
+                   <%if(flash.type=="CatAdded"&&errors){%>
+                    <%for(i in errors){%>
+                    <div class="alert <%=flash.class%>">
+                        <%=errors[i].msg%>
+                    </div>
+                    <%}%>
+                   <%}%>
+               </div>                                                
+            <div class="form-group input-xs col-xs-10 col-sm-10">
+
+    			<label for="Cat">Cat</label>
+    			<input type="text" name="Cat" placeholder="CatName" class="form-control">
+    			<div class="divider"></div>
+    			<label for="CatDesc">Desc</label>
+    			<textarea name="CatDesc" class="form-control" placeholder="CatDescription"></textarea>
+    			<div class="divider"></div>
+    			<input type="submit" value="Save" class="btn btn-primary">
+    		</div>
+    	</form>
+    	</div>
+    </li>
+    <%}%>

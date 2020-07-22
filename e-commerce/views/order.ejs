@@ -1,0 +1,417 @@
+<html style="overflow: hidden;"><head>
+<title>E-Commerce|Order</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keywords" content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<link href="/stylesheets/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<!-- Custom Theme files -->
+<link href="/stylesheets/css.css" rel="stylesheet" type="text/css" media="all">
+<!--js-->
+<script asyn='true' src="/javascripts/jquery-2.1.1.min.js"></script> 
+<!--icons-css-->
+<link href="/stylesheets/font-awesome.css" rel="stylesheet"> 
+<!--Google Fonts-->
+<link href="//fonts.googleapis.com/css?family=Carrois+Gothic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet" type="text/css">
+<!--//skycons-icons-->
+<script asyn='true' src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<script asyn='true' src="https://js.braintreegateway.com/web/dropin/1.4.0/js/dropin.min.js"></script>
+<script asyn='true' src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+<script>
+var socket=io();
+var session=sessionStorage;
+</script>
+<script asyn='true' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/3.0.0/jquery.payment.js" integrity="sha256-ONHEO7WnmmK84+xkL+IW20IFggYvCZC7fOCV/paYqDQ=" crossorigin="anonymous"></script>
+</head>
+<body>	
+<div class="page-container">	
+   <div class="left-content">
+	   <div class="mother-grid-inner">
+            <!--header start here-->
+				<div class="header-main fixed">
+					<div class="header-left">
+							<div class="logo-name">
+									 <a href="/"> <h1>E-Comm</h1> 
+									<!--<img id="logo" src="" alt="Logo"/>--> 
+								  </a> 								
+							</div>
+							<!--search-box-->
+								<div class="search-box">
+									<form>
+										<input placeholder="Search..." required="" type="text">	
+										<input value="" type="submit">					
+									</form>
+								</div><!--//end-search-box-->
+							<div class="clearfix"> </div>
+						 </div>
+						 <div class="header-right">
+							<div class="profile_details_left"><!--notifications of menu start -->
+								<ul class="nofitications-dropdown">
+									<li class="dropdown head-dpdn">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">3</span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<div class="notification_header">
+													<h3>You have 3 new messages</h3>
+												</div>
+											</li>
+											<li><a href="#">
+											   <div class="user_img"><img src="images/p4.png" alt=""></div>
+											   <div class="notification_desc">
+												<p>Lorem ipsum dolor</p>
+												<p><span>1 hour ago</span></p>
+												</div>
+											   <div class="clearfix"></div>	
+											</a></li>
+											<li class="odd"><a href="#">
+												<div class="user_img"><img src="images/p2.png" alt=""></div>
+											   <div class="notification_desc">
+												<p>Lorem ipsum dolor </p>
+												<p><span>1 hour ago</span></p>
+												</div>
+											  <div class="clearfix"></div>	
+											</a></li>
+											<li><a href="#">
+											   <div class="user_img"><img src="images/p3.png" alt=""></div>
+											   <div class="notification_desc">
+												<p>Lorem ipsum dolor</p>
+												<p><span>1 hour ago</span></p>
+												</div>
+											   <div class="clearfix"></div>	
+											</a></li>
+											<li>
+												<div class="notification_bottom">
+													<a href="#">See all messages</a>
+												</div> 
+											</li>
+										</ul>
+									</li>
+									<li class="dropdown head-dpdn">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge blue">3</span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<div class="notification_header">
+													<h3>You have 3 new notification</h3>
+												</div>
+											</li>
+											<li><a href="#">
+												<div class="user_img"><img src="images/p5.png" alt=""></div>
+											   <div class="notification_desc">
+												<p>Lorem ipsum dolor</p>
+												<p><span>1 hour ago</span></p>
+												</div>
+											  <div class="clearfix"></div>	
+											 </a></li>
+											 <li class="odd"><a href="#">
+												<div class="user_img"><img src="images/p6.png" alt=""></div>
+											   <div class="notification_desc">
+												<p>Lorem ipsum dolor</p>
+												<p><span>1 hour ago</span></p>
+												</div>
+											   <div class="clearfix"></div>	
+											 </a></li>
+											 <li><a href="#">
+												<div class="user_img"><img src="images/p7.png" alt=""></div>
+											   <div class="notification_desc">
+												<p>Lorem ipsum dolor</p>
+												<p><span>1 hour ago</span></p>
+												</div>
+											   <div class="clearfix"></div>	
+											 </a></li>
+											 <li>
+												<div class="notification_bottom">
+													<a href="#">See all notifications</a>
+												</div> 
+											</li>
+										</ul>
+									</li>	
+									<li class="dropdown head-dpdn">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-tasks"></i><span class="badge blue1">9</span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<div class="notification_header">
+													<h3>You have 8 pending task</h3>
+												</div>
+											</li>
+											<li><a href="#">
+												<div class="task-info">
+													<span class="task-desc">Database update</span><span class="percentage">40%</span>
+													<div class="clearfix"></div>	
+												</div>
+												<div class="progress progress-striped active">
+													<div class="bar yellow" style="width:40%;"></div>
+												</div>
+											</a></li>
+											<li><a href="#">
+												<div class="task-info">
+													<span class="task-desc">Dashboard done</span><span class="percentage">90%</span>
+												   <div class="clearfix"></div>	
+												</div>
+												<div class="progress progress-striped active">
+													 <div class="bar green" style="width:90%;"></div>
+												</div>
+											</a></li>
+											<li><a href="#">
+												<div class="task-info">
+													<span class="task-desc">Mobile App</span><span class="percentage">33%</span>
+													<div class="clearfix"></div>	
+												</div>
+											   <div class="progress progress-striped active">
+													 <div class="bar red" style="width: 33%;"></div>
+												</div>
+											</a></li>
+											<li><a href="#">
+												<div class="task-info">
+													<span class="task-desc">Issues fixed</span><span class="percentage">80%</span>
+												   <div class="clearfix"></div>	
+												</div>
+												<div class="progress progress-striped active">
+													 <div class="bar  blue" style="width: 80%;"></div>
+												</div>
+											</a></li>
+											<li>
+												<div class="notification_bottom">
+													<a href="#">See all pending tasks</a>
+												</div> 
+											</li>
+										</ul>
+									</li>	
+								</ul>
+								<div class="clearfix"> </div>
+							</div>
+							<!--notification menu end -->
+							<%if(Client){%>
+							<div class="profile_details">		
+								<ul>
+									<li class="dropdown profile_details_drop">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+											<div class="profile_img"> 
+												<div class="user-name">
+													<p><%=Name%></p>
+													<span>Client</span>
+												</div>
+												<i class="fa fa-angle-down lnr"></i>
+												<i class="fa fa-angle-up lnr"></i>
+												<div class="clearfix"></div>	
+											</div>	
+										</a>
+										<ul class="dropdown-menu drp-mnu">
+											<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
+											<li> <a href="#"><i class="fa fa-user "></i> Profile</a> </li> 
+											<li> <a href="" def="logout"><i class="fa fa-sign-out"></i> Logout</a> </li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<%}%>
+							<div class="clearfix"> </div>				
+						</div>
+				     <div class="clearfix"> </div>	
+				</div>
+<!--heder end here-->
+<!-- script-for sticky-nav -->
+		<script>
+		$(document).ready(function() {
+			 var navoffeset=$(".header-main").offset().top;
+			 $(window).scroll(function(){
+				var scrollpos=$(window).scrollTop(); 
+				if(scrollpos >=navoffeset){
+					$(".header-main").addClass("fixed");
+				}else{
+					$(".header-main").removeClass("fixed");
+				}
+			 });
+			 
+		});
+		</script>
+		<!-- /script-for sticky-nav -->
+<!--inner block start here-->
+<div class="inner-block">
+    <div class="row">
+    	<div class="col-sm-8 col-md-8">
+    		
+    	</div>							
+    </div>
+    <div class="row">
+    <div class="col-md-8">
+    	<div class="payment-online-form-left">
+    			<%if(flash.messages){%>
+    			<%var errors=flash.messages%>
+    			<%for(var i in errors){%>
+    			<div class="alert alert-danger alert-dismissable">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
+                <%=errors[i].msg%> </div>
+    			<%}%>
+    			<%}%>
+				<form method="post">
+												<h4><span class="shoppong-pay-1"> </span>Shipping Details</h4>
+												<ul>
+													<li><input name="first" class="text-box-dark" value="First Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First Name';}" type="text"></li>
+													<li><input name="last" class="text-box-dark" value="Last Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}" type="text"></li>
+												</ul>
+												<ul>
+													<li><input name="email" class="text-box-dark" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" type="text"></li>
+													<li><input name="phone" class="text-box-dark" value="Phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone';}" type="text"></li>
+												</ul>
+												<ul>
+													<li><input name="address" class="text-box-dark" value="Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Address';}" type="text"></li>
+													<li><input name='pin' class="text-box-dark" value="Pin Code" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Pin Code';}" type="text"></li>
+													
+												</ul>
+												<div class="clear"></div>
+												<h4 class="paymenthead"><span class="payment"></span>Payment Details</h4>
+												<div class="clear"></div>										
+												<ul>
+													<li><input name="CN" class="text-box-dark" value="Card Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Card Number';}" type="text"></li>
+													<li><input class="text-box-dark" value="Name on card" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name on card';}" type="text"></li>
+												
+												</ul>
+												<ul>
+													<li><input name="Expires" class="text-box-light hasDatepicker" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}" type="text"><em class="pay-date"> </em></li>
+													<li><input  name='CVV' class="text-box-dark" value="Security Code" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Security Code';}" type="text"></li>
+												
+												</ul>
+												<ul class="payment-sendbtns">
+													<li><input value="Reset" type="reset"></li>
+													<li><input class="order" type="submit" value="Process order"></li>
+												</ul>
+												<div class="clear"></div>
+				</form>								
+		</div>						
+													
+    </div>
+    <div class="col-md-4">
+    	<div class="row well-lg well" def='vorder'>
+    			
+    	</div>
+    </div>														
+    </div>												
+</div>
+<!--inner block end here-->
+<!--copy rights start here-->
+<div class="copyrights">
+	 <p>© 2016 Shoppy. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+</div>	
+<!--COPY rights end here-->
+</div>
+</div>
+<!--slider menu-->
+    <div class="sidebar-menu">
+		  	<div class="logo"> <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="#"> <span id="logo"></span> 
+			      <!--<img id="logo" src="" alt="Logo"/>--> 
+			  </a> </div>		  
+		    <div class="menu">
+		      <ul id="menu">
+		        <li id="menu-home"><a href="/"><i class="fa fa-home"></i><span>Home</span></a></li>
+		        <li><a href="#"><i class="fa fa-envelope"></i><span>Mailbox</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		        	 <ul id="menu-academico-sub">
+			            <li id="menu-academico-avaliacoes"><a href="inbox.html">Inbox</a></li>
+			            <li id="menu-academico-boletim"><a href="inbox-details.html">Compose email</a></li>
+		             </ul>
+		        </li>
+		        <li><a href="/cart"><i class="fa fa-shopping-cart"></i><span>Cart</span></a></li>
+		      </ul>
+		    </div>
+	 </div>
+	<div class="clearfix"> </div>
+</div>
+<!--slide bar menu end here-->
+<script>
+var toggle = true;
+            
+$(".sidebar-icon").click(function() {                
+  if (toggle)
+  {
+    $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+    $("#menu span").css({"position":"absolute"});
+  }
+  else
+  {
+    $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+    setTimeout(function() {
+      $("#menu span").css({"position":"relative"});
+    }, 400);
+  }               
+                toggle = !toggle;
+            });
+</script>
+<!--scrolling js-->
+		<script src="/javascripts/jquery.nicescroll.js"></script>
+		<script src="/javascripts/scripts.js"></script>
+		<div id="ascrail2000" class="nicescroll-rails" style="width: 6px; z-index: 1000; background: rgb(255, 255, 255) none repeat scroll 0% 0%; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; opacity: 0;"><div style="position: relative; top: 0px; float: right; width: 6px; height: 901px; background-color: rgb(104, 174, 0); border: 0px none; background-clip: padding-box; border-radius: 10px;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails" style="height: 6px; z-index: 1000; background: rgb(255, 255, 255) none repeat scroll 0% 0%; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; opacity: 0;"><div style="position: relative; top: 0px; height: 6px; width: 1280px; background-color: rgb(104, 174, 0); border: 0px none; background-clip: padding-box; border-radius: 10px;"></div></div>
+		<!--//scrolling js-->
+<script src="/javascripts/bootstrap.js"> </script>
+<!-- mother grid end here-->
+<script type="text/javascript">
+total=parseInt(session.subtotal);
+cart=JSON.parse(session.oproducts);	
+html="<div class='col-sm-4'>subTotal</div><div class='col-sm-8'>"+total.toString()+"</div><div class='col-sm-4'>shipping</div><div class='col-sm-8'>5</div><div class='col-sm-4'>Total</div><div class='col-sm-8'>"+(total+=5).toString()+"</div>";
+$('[def=vorder]').html(html);
+$("a[def=logout]").click((event)=>{
+		$(event.target).attr('href',"/logout?log="+CryptoJS.HmacSHA1(Math.random().toString(),'<%=Client%>').toString(CryptoJS.enc.Hex));
+		session.clear();
+	});
+		if (!session.Bill) {
+	    var Bill=session.client+(Math.random()*new Date().getTime()).toString();
+			    var BillModel=CryptoJS.MD5(Bill).toString(CryptoJS.enc.HEX),total=0,html="";
+			if (session.client) {session.setItem('Bill',BillModel);}
+			BillModel=session.Bill;
+			socket.emit('bill-create',{BillModel:BillModel,ClientName:session.client}).on('bill-created',()=>{
+			}).on('order-collected',(data)=>{
+				session.setItem('collected',data);
+				/* var button = document.querySelector('#submit-button');
+					braintree.dropin.create({
+				  authorization: 'sandbox_zb8f2xmy_9929rg9rv7r5y5wp',
+				  container: '#dropin-container',
+				  locale: 'en_UK'
+				}, function (createErr, instance) {
+			      button.addEventListener('click', function () {
+			        instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
+			        	var values = {};
+						$.each($('form').serializeArray(), function(i, field) {
+						    values[field.name] = field.value;
+						});
+			        	$.ajax({
+			        		url:"order",
+			        		type:"post",
+			        		data:{
+			        			paymentMethodNonce:payload.nonce,
+			        			data:values,
+			        			total:session.total
+			        		}
+			        	}).done((err,result)=>{
+			        		console.log(typeof(result));
+			        	})
+			        });
+			      });
+			    });	*/ 
+			})
+		}
+		else{
+			//if (session.collected=='true') {
+				for(var i in cart){
+					ops=cart[i].s.split(':');
+					if (session.collected=='true') {
+						break;
+					}else{
+					socket.emit('collect',{ProductName:i.toString(),ClientName:session.client,OQuantity:cart[i].q,Price:cart[i].price,BillModel:session.Bill},false);}
+				}
+				socket.on('order-collected',(d)=>session.setItem('collected',d))
+				if ($('form').has('input[name=opts]')==true) {
+					$('input[name=opts]').val(session.Bill+"."+session.total);
+				}else{
+				$('form').append("<input  name=opts type=hidden value="+session.Bill+"."+session.total+">");}
+				$('input[name=CN ]').change((event)=>{
+					if ($('form').has("input[name=CT]")==true) {
+						$(input[name=CT]).val($.payment.cardType($(event.target).val()).toString());
+					}else{
+					$('form').append("<input name=CT type=hidden value="+$.payment.cardType($(event.target).val()).toString()+">");}
+				});				
+		//}
+	}
+</script>						
+</body>
+</html>

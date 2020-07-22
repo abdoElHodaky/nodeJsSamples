@@ -1,0 +1,47 @@
+<div class="alert">
+            <%if(flash.type=="editProduct"){%>
+            <%for(i in errors){%>
+            <div class="alert-danger">
+              <%=errors[i].msg%>
+            </div>
+            <%}%>
+            <%}%>
+          </div>
+<form class="form-horizontal row" method="post"  >
+                  <div class="form-group">
+                    <div class="col-sm-7 col-xs-5" >
+                      <input type="hidden" class="form-control" name="ProductName" placeholder="ProductName" value="<%=Product.ProductName%>">
+                    </div>
+                  </div>
+                   <div class="form-group">
+                    <label for="ProductPrice" class="col-sm-2 col-xs-1  control-label">ProductPrice</label>
+                    <div class="col-sm-7 col-xs-5" >
+                      <input type="number" class="form-control" name="Price" placeholder="ProductPrice" value="<%=Product.Price%>">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="Quantity" class="col-sm-2 col-xs-1  control-label">Quantiy</label>
+                    <div class="col-sm-7 col-xs-5" >
+                      <input type="number" class="form-control" name="Quantity" placeholder="ProductQuantiy" value="<%=Product.Quantity%>">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="Img" class="col-sm-2 col-xs-1  control-label">Logo</label>
+                    <div class="col-sm-7 col-xs-5" >
+                      <img src="<%=Product.ProductThumbnail%>" class="img-responsive" id="ELogo">
+                      <input name="Logo" type="hidden">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="Desc" class="col-sm-2 col-xs-1  control-label">Description</label>
+                    <div class="col-sm-7 col-xs-5" >
+                      <textarea class="form-control" cols="5" placeholder="Write Something" name="ProductDesc" ><%= Product.ProductDesc%></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary glyphicon glyphicon-floppy-disk"></button>
+                          </div>
+                  </div>
+                </form>

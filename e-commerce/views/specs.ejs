@@ -1,0 +1,62 @@
+<table class="table">
+	<%if(Specs[0]){%>
+	<caption class="rounded-3" ><img src="<%=Specs[0].ProductThumbnail%>" width="10%" height="5%" ><h3 class="heading"><%=Specs[0].ProductName%></h3></caption>
+	<%}%>
+		<thead>
+			<th>SpecName</th>
+			<th>SpecValue</th>
+			<th>Action</th>
+		</thead>
+		<tbody>
+		<%var name,errors=flash["messages"];%>
+		<%for(var i in Specs){%>
+				<tr>
+					<%name=Specs[i].ProductName;%>
+					<td><%=Specs[i].SpecName%></td>
+					<td><%=Specs[i].SpecValue%></td>
+					<td>Action</td>
+				</tr>
+			<%}%>
+		</tbody>
+</table>
+<%if(type=="owner"){%>
+		<form method="post" action="/<%=shopName%>/products/Specs/add" class="form-inline row" >
+						<div class="alert">
+						<%if(flash.type=="SpecAdd"){%>
+							<%for(var i in errors){%>
+							<div class="alert <%=flash.class%>">
+								<%=errors[i].msg%>
+							</div>
+							<%}}%>
+						</div>
+						<%if(!name){%>
+						<div class="col-sm-3">
+							<div class="form-group input-sm ">
+							<label for="ProductName" class="control-label col-sm-4">ProductName</label>
+							<input type="text" name="ProductName" class="form-control col-sm-4 ">
+							</div>
+						</div>
+						<%}%>
+						<div class=" col-sm-3">
+							<div class="form-group input-sm ">
+							<%if(name){%>
+							<input type="hidden" name="ProductName" class="form-control col-sm-4 " value="<%=name%>">
+							<%}%>
+							<label for="SpecName" class="control-label col-sm-4">SpecName</label>
+							
+							<input type="text" name="SpecName" class="form-control col-sm-4">
+						</div>
+						</div>
+						<div class=" col-sm-3">
+							<div class="form-group input-sm  ">
+							<label for="SpecValue" class="control-label col-sm-2">SpecValue</label>
+							<input type="text" name="SpecValue" class="form-control col-sm-4">	
+										
+						</div>
+						</div>
+						<div class="col-sm-3">
+							<button type="submit"class="btn btn-primary">Go</button>	
+						</div>
+		</form>
+		<%}%>
+	

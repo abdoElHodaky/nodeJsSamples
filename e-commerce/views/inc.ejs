@@ -1,0 +1,56 @@
+<title><%= title%></title>
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">	
+	<script type="text/javascript" src="/javascripts/jquery-2.2.2.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>  
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-theme.css">
+<script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Cookies.js/1.2.1/cookies.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<script>
+var socket=io();
+var session=sessionStorage;
+</script>
+<% include loader%>
+<style type="text/css">input[type="checkbox"] {
+    visibility: hidden;
+    }
+    .check {
+    width: 20px;
+    margin:1.5%;
+    position: relative;
+    }
+    .check input[type=checkbox]:not(checked)+label {
+    cursor: pointer;
+    position: absolute;
+    width:25px;
+    height:25px;
+    top:.3%;
+    background: #eee;
+    left:.5%;
+    background: url(http://live.minicdn.ca/Public/img/content/form/new-ci/checkbox.png?v=Drob86kfGiCaE7ircrsomzUPvf1CnkUY-ptJ61-ciSI1) 0%0% no-repeat;
+
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAANUlEQVQokWNgoBREpc36TypG0UwKIF3zX0o0U2TzqGZcmv9iKP79++f/v//+DEZnk522yQUA6bZS04TUqZAAAAAASUVORK5CYII=) 0%0% no-repeat;
+    }
+    .check input[type=checkbox]:checked ~ label {
+        background: url(http://res.cloudinary.com/engineering-com/image/upload/v1457018458/checked_checkbox_utbs6v.png) 0%0% no-repeat;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAABRklEQVQokY3TMUuCQRzH8TuKBoNo6gW0SC+gGtpa2tqilmgsgoamxmhvCTrBgiCiICRq1BokwkOFEiwIIyklJSQxVDIfH/02WA/Koz0e/Ib/3X2Ouz+cEELEhBA4ZnYFsRtCbJ4i+gf4dQKnkSp+4/KGkUpzmS4A/B3qjOf8CaTSLAQS1lxP2J8qIJVmaC9CplztHZcNk9GjW6TSbMcybWs2nC1XyX0ZVr1+84JUGvfxHYZZ74zzlRob+pVBb5jDxxwAoWyRPo9GKs15Mm+7VRPPLDG8H0Gq5sb5QIJKrc7YSQypNFNn9zQajS54bceCUmlc3jCr10mrDr59duxHE7vH23Brpi8eujbTevOkL26DfR5N9L3kjH3PHza8ePXUFbZhw6wzchC14IQvTrFq9oYBtqJpXN4wy8EkJeN/2IoLPf0qewo/SZiHa65GflQAAAAASUVORK5CYII=)0% 0% no-repeat;
+    }
+    </style>

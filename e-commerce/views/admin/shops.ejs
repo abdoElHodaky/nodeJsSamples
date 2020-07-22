@@ -1,0 +1,462 @@
+<!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>E-Commerce</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<link href="/stylesheets/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<!-- Custom Theme files -->
+<link href="/stylesheets/css.css" rel="stylesheet" type="text/css" media="all"/>
+<!--js-->
+<script src="/javascripts/jquery-2.1.1.min.js"></script> 
+<!--icons-css-->
+<link href="/stylesheets/font-awesome.css" rel="stylesheet"> 
+<!--Google Fonts-->
+<link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
+<!--//skycons-icons-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<script>var socket=io();</script>
+<%-include('../loader')%>
+</head>
+<body>	
+<div class="page-container">	
+   <div class="left-content">
+	   <div class="mother-grid-inner">
+            <!--header start here-->
+				<div class="header-main">
+					<div class="header-left">
+							<div class="logo-name">
+									 <a href="/admin"> <h1>E-Comm</h1> 
+									<!--<img id="logo" src="" alt="Logo"/>--> 
+								  </a> 								
+							</div>
+							<!--search-box-->
+								<div class="search-box">
+									<form>
+										<input type="text" placeholder="Search..." required="">	
+										<input type="submit" value="">					
+									</form>
+								</div><!--//end-search-box-->
+							<div class="clearfix"> </div>
+						 </div>
+						 <div class="header-right">
+							<div class="profile_details_left"><!--notifications of menu start -->
+								<ul class="nofitications-dropdown">
+									<li class="dropdown head-dpdn">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">3</span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<div class="notification_header">
+													<h3>You have 3 new messages</h3>
+												</div>
+											</li>
+											<li><a href="#">
+											   <div class="user_img"><img src="images/p4.png" alt=""></div>
+											   <div class="notification_desc">
+												<p>Lorem ipsum dolor</p>
+												<p><span>1 hour ago</span></p>
+												</div>
+											   <div class="clearfix"></div>	
+											</a></li>
+											<li class="odd"><a href="#">
+												<div class="user_img"><img src="images/p2.png" alt=""></div>
+											   <div class="notification_desc">
+												<p>Lorem ipsum dolor </p>
+												<p><span>1 hour ago</span></p>
+												</div>
+											  <div class="clearfix"></div>	
+											</a></li>
+											<li><a href="#">
+											   <div class="user_img"><img src="images/p3.png" alt=""></div>
+											   <div class="notification_desc">
+												<p>Lorem ipsum dolor</p>
+												<p><span>1 hour ago</span></p>
+												</div>
+											   <div class="clearfix"></div>	
+											</a></li>
+											<li>
+												<div class="notification_bottom">
+													<a href="#">See all messages</a>
+												</div> 
+											</li>
+										</ul>
+									</li>
+									<li class="dropdown head-dpdn">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge blue">3</span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<div class="notification_header">
+													<h3>You have 3 new notification</h3>
+												</div>
+											</li>
+											<li><a href="#">
+												<div class="user_img"><img src="images/p5.png" alt=""></div>
+											   <div class="notification_desc">
+												<p>Lorem ipsum dolor</p>
+												<p><span>1 hour ago</span></p>
+												</div>
+											  <div class="clearfix"></div>	
+											 </a></li>
+											 <li class="odd"><a href="#">
+												<div class="user_img"><img src="images/p6.png" alt=""></div>
+											   <div class="notification_desc">
+												<p>Lorem ipsum dolor</p>
+												<p><span>1 hour ago</span></p>
+												</div>
+											   <div class="clearfix"></div>	
+											 </a></li>
+											 <li><a href="#">
+												<div class="user_img"><img src="images/p7.png" alt=""></div>
+											   <div class="notification_desc">
+												<p>Lorem ipsum dolor</p>
+												<p><span>1 hour ago</span></p>
+												</div>
+											   <div class="clearfix"></div>	
+											 </a></li>
+											 <li>
+												<div class="notification_bottom">
+													<a href="#">See all notifications</a>
+												</div> 
+											</li>
+										</ul>
+									</li>	
+									<li class="dropdown head-dpdn">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-tasks"></i><span class="badge blue1">9</span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<div class="notification_header">
+													<h3>You have 8 pending task</h3>
+												</div>
+											</li>
+											<li><a href="#">
+												<div class="task-info">
+													<span class="task-desc">Database update</span><span class="percentage">40%</span>
+													<div class="clearfix"></div>	
+												</div>
+												<div class="progress progress-striped active">
+													<div class="bar yellow" style="width:40%;"></div>
+												</div>
+											</a></li>
+											<li><a href="#">
+												<div class="task-info">
+													<span class="task-desc">Dashboard done</span><span class="percentage">90%</span>
+												   <div class="clearfix"></div>	
+												</div>
+												<div class="progress progress-striped active">
+													 <div class="bar green" style="width:90%;"></div>
+												</div>
+											</a></li>
+											<li><a href="#">
+												<div class="task-info">
+													<span class="task-desc">Mobile App</span><span class="percentage">33%</span>
+													<div class="clearfix"></div>	
+												</div>
+											   <div class="progress progress-striped active">
+													 <div class="bar red" style="width: 33%;"></div>
+												</div>
+											</a></li>
+											<li><a href="#">
+												<div class="task-info">
+													<span class="task-desc">Issues fixed</span><span class="percentage">80%</span>
+												   <div class="clearfix"></div>	
+												</div>
+												<div class="progress progress-striped active">
+													 <div class="bar  blue" style="width: 80%;"></div>
+												</div>
+											</a></li>
+											<li>
+												<div class="notification_bottom">
+													<a href="#">See all pending tasks</a>
+												</div> 
+											</li>
+										</ul>
+									</li>	
+								</ul>
+								<div class="clearfix"> </div>
+							</div>
+							<!--notification menu end -->
+							<div class="profile_details">		
+								<ul>
+									<li class="dropdown profile_details_drop">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+											<div class="profile_img">	
+												<span class="prfil-img"><img src="images/p1.png" alt=""> </span> 
+												<div class="user-name">
+													<p><%=name%></p>
+													<span>Administrator</span>
+												</div>
+												<i class="fa fa-angle-down lnr"></i>
+												<i class="fa fa-angle-up lnr"></i>
+												<div class="clearfix"></div>	
+											</div>	
+										</a>
+										<ul class="dropdown-menu drp-mnu">
+											<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
+											<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
+											<li> <a href="#" def="logout"><i class="fa fa-sign-out"></i> Logout</a> </li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="clearfix"> </div>				
+						</div>
+				     <div class="clearfix"> </div>	
+				</div>
+<!--heder end here-->
+<!-- script-for sticky-nav -->
+		<script>
+		$(document).ready(function() {
+			 var navoffeset=$(".header-main").offset().top;
+			 $(window).scroll(function(){
+				var scrollpos=$(window).scrollTop(); 
+				if(scrollpos >=navoffeset){
+					$(".header-main").addClass("fixed");
+				}else{
+					$(".header-main").removeClass("fixed");
+				}
+			 });
+			 
+		});
+		</script>
+<!-- /script-for sticky-nav -->
+<!--inner block start here-->
+<div class="inner-block">
+    <div class="product-block">
+    	<%if(messages&&messages.success){%>
+    		<div class="alert alert-success alert-dismissable">
+              <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
+              <%=messages.success%></div>
+    	<%}%>
+    	<div class="pro-head">
+    		<h2>Shops</h2>
+    	</div>
+    	<%if(shops.length>0&&shops){%>
+    	<%for(var i in shops){%>
+    	<div class="product-grid col-md-3 col-sm-4 " id="shops">
+    		<div class="product-items">
+	    		    <div class="project-eff">
+						<div id="nivo-lightbox-demo"> <p> <a href="#" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo"><span class="rollover1"> </span> </a></p></div>     
+							<img class="img-responsive" src="<%=shops[i].Logo%>" alt="">
+					</div>
+	    		<div class="produ-cost">
+	    			<h4><%=shops[i].ShopName%></h4>
+	    			<h5><div class="btn-group">
+	    				<a href="/Shops/<%=shops[i].ShopName%>/delete" class="btn btn-danger fa fa-remove"></a>
+	    				<a class="btn  btn-default fa fa-eye" def='viewS' data-toggle="collapse" href="#tviewS"></a>
+	    				<div class='dropdown col-md-1 col-sm-1'><button class='btn fa fa-menu btn-secondary dropdown-toggle' type='button'data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Actions</button><div class='dropdown-menu' aria-labelledby='dropdownMenuButton'><a class='dropdown-item btn btn-secondary' href='#'>Cats</a><a class='dropdown-item btn btn-secondary' href='#' class="">Products</a></div>
+	    			</div></h5>
+	    		</div>
+    		</div>
+    	</div>
+    	<%}}%>
+    	<div class="product-grid col-md-3 col-sm-4" id="add">
+    	<form action="" method="post">
+    		<div class="product-items">
+	    		    <div class="project-eff">     
+							<input type="hidden" name="Logo">
+							<img width="300" height="300" src="//placehold.it/300/300" class="img-responsive" alt="Logo">
+					</div>
+	    		<div class="produ-cost">
+	    			<h4>
+	    			<input class="form-control" placeholder='ShopName' type="text" name="SName">
+	    			<input type="number" placeholder='Choose num of Specs' name="CatN" min='1' max='5'>
+	    			<div id="specs"></div>
+	    			</h4>
+	    			<h5><div class="btn-group">
+	    				<button type="submit" class="btn-xs fa fa-save btn btn-primary"></button><button class="btn-xs btn btn-default" def='quit'>&times;</button>
+	    			</div></h5>
+	    		</div>
+    		</div>
+    	</form>
+    		
+    	</div>
+      <div class="clearfix"> </div>
+    </div>
+    <div class="collapse" id="tviewS">
+    	<div class='row well'>
+    	</div>
+    	<div class="clearfix"> </div>
+    </div>									
+</div>
+<!--inner block end here-->
+<link rel="stylesheet" type="text/css" href="/stylesheets/magnific-popup.css">
+			<script type="text/javascript" src="/javascripts/nivo-lightbox.min.js"></script>
+				<script type="text/javascript">
+				$(document).ready(function(){
+				    $('#nivo-lightbox-demo a').nivoLightbox({ effect: 'fade' });
+				});
+				</script>
+
+<!--copy rights start here-->
+<div class="copyrights">
+	 <p>© 2016 Shoppy. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+</div>	
+<!--COPY rights end here-->
+</div>
+</div>
+<!--slider menu-->
+    <div class="sidebar-menu">
+		  	<div class="logo"> <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="#"> <span id="logo" ></span> 
+			      <!--<img id="logo" src="" alt="Logo"/>--> 
+			  </a> </div>		  
+		    <div class="menu">
+		      <ul id="menu" >
+		        <li id="menu-home" ><a href="/admin"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
+		        <!--li><a href="#"><i class="fa fa-cogs"></i><span>Components</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		          <ul>
+		            <li><a href="grids.html">Grids</a></li>
+		            <li><a href="portlet.html">Portlets</a></li>		            
+		          </ul>
+		        </li>
+		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-book nav_icon"></i><span>Element</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		          <ul id="menu-comunicacao-sub" >
+		            <li id="menu-mensagens" style="width: 120px" ><a href="buttons.html">Buttons</a>		              
+		            </li>
+		            <li id="menu-arquivos" ><a href="typography.html">Typography</a></li>
+		             <li id="menu-arquivos" ><a href="icons.html">Icons</a></li>
+		          </ul>
+		        </li>
+		          <li><a href="maps.html"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>
+		        <li id="menu-academico" ><a href="#"><i class="fa fa-file-text"></i><span>Pages</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		          <ul id="menu-academico-sub" >
+		          	 <li id="menu-academico-boletim" ><a href="login.html">Login</a></li>
+		            <li id="menu-academico-avaliacoes" ><a href="signup.html">Sign Up</a></li>		           
+		          </ul>
+		        </li-->
+		        
+		        <!--li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Charts</span></a></li-->
+		        <li><a href="#"><i class="fa fa-envelope"></i><span>Mailbox</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		        	 <ul id="menu-academico-sub" >
+			            <li id="menu-academico-avaliacoes" ><a href="inbox.html">Inbox</a></li>
+			            <li id="menu-academico-boletim" ><a href="inbox-details.html">Compose email</a></li>
+		             </ul>
+		        </li>
+		         <li><a href="#"><i class="fa fa-cog"></i><span>Settings</span><!--span class="fa fa-angle-right" style="float: right"></span--></a>
+		         	 <!--ul id="menu-academico-sub" >
+			            <li id="menu-academico-avaliacoes" ><a href="404.html">404</a></li>
+			            <li id="menu-academico-boletim"><a href="blank.html">Blank</a></li>
+		             </ul-->
+		         </li>
+		         <li><a href="#"><i class="fa fa-shopping-cart"></i><span>App</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		         	<ul id="menu-academico-sub" >
+			            <li id="menu-academico-avaliacoes" ><a href="/admin/Shops">Shops</a></li>
+			            <li id="menu-academico-boletim" ><a href="price.html">Price</a></li>
+		             </ul>
+		         </li>
+		      </ul>
+		    </div>
+	 </div>
+	<div class="clearfix"> </div>
+</div>
+<!--slide bar menu end here-->
+<script>
+var toggle = true;
+            
+$(".sidebar-icon").click(function() {                
+  if (toggle)
+  {
+    $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+    $("#menu span").css({"position":"absolute"});
+  }
+  else
+  {
+    $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+    setTimeout(function() {
+      $("#menu span").css({"position":"relative"});
+    }, 400);
+  }               
+                toggle = !toggle;
+            });
+</script>
+<!--scrolling js-->
+		<script src="/javascripts/jquery.nicescroll.js"></script>
+		<script src="/javascripts/scripts.js"></script>
+		<!--//scrolling js-->
+<script src="/javascripts/bootstrap.js"> </script>
+<!-- mother grid end here-->
+<script type="text/javascript">
+	$("a[def=logout]").click((event)=>{
+		$(event.target).attr('href',"/logout?log="+CryptoJS.HmacSHA1(Math.random().toString(),'<%=admin%>').toString(CryptoJS.enc.Hex));
+		session.clear();
+	});
+
+	$("[def='viewS']").click((event)=>{
+			socket.emit('sps',$('#shops').has(event.target).find('h4').text()).on('sps',(ps)=>{
+				html=""
+				for(var i in ps){
+					//html+="<div class='col-md-3 col-sm-3'><img class='img-rounded img-responsive' src="+atob(btoa(String.fromCharCode.apply(null, new Uint8Array(ps[i].ProductThumbnail))))+" wdith='10%' height='10%'><div class='row'>"+ps[i].ProductName+"<div class='col-md-2 col-sm-2'>"+ps[i].Price+"</div>"+"<div class='dropdown col-md-1 col-sm-1'><button class='btn fa fa-menu btn-secondary dropdown-toggle' type='button'data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Actions</button>"+"<div class='dropdown-menu' aria-labelledby='dropdownMenuButton'><a class='dropdown-item fa fa-edit' href='#'>Edit</a><a class='dropdown-item' href='#'>Another action</a><a class='dropdown-item' href='#'>Something else here</a></div>"+"</div></div></div>"
+					html+="<div class='product-grid col-md-3 col-sm-4'><div class='product-items'><div class='project-eff'><img class='img-responsive'src="+atob(btoa(String.fromCharCode.apply(null, new Uint8Array(ps[i].ProductThumbnail))))+" wdith='10%' height='10%' alt=''></div>"+"<div class='produ-cost'><h4>"+ps[i].ProductName+"</h4><h5>"+"<div class='col-sm-2'>"+ps[i].price+"</div><div class='dropdown col-md-3 col-sm-3'><button class='btn fa fa-menu btn-secondary dropdown-toggle' type='button'data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Actions</button>"+"<div class='dropdown-menu' aria-labelledby='dropdownMenuButton'><a class='dropdown-item fa fa-edit' href='#'>Edit</a><a class='dropdown-item' href='#'>Another action</a><a class='dropdown-item' href='#'>Something else here</a></div></h5></div></div></div>"
+				}
+				$('#tviewS .well').html(html);
+			})
+	})
+	$('#add > img').on("dragover dragenter dragleave drop",(event)=>{
+		event.preventDefault();
+		if (event.type=='drop') {
+		reader=new FileReader();
+		reader.readAsDataURL(event.originalEvent.dataTransfer.files[0]);
+		reader.onload=()=>{
+			event.target.src=reader.result
+		};
+		event.target.parentNode.childNodes[1].value=event.target.src
+		}
+	})
+	$('[def=quit]').click((event)=>{
+		event.preventDefault();
+		$('#add').remove();
+	})
+	/*$('form').submit((event)=>{
+		event.preventDefault();
+		var values = {};
+		$.each($(event.target).serializeArray(), function(i, field) {
+			values[field.name] = field.value;
+		});
+		socket.emit('b2b',values).on('b2b',(d)=>{
+			if (d==true) {
+			$(event.target).before("<div class='alert alert-success success-dismissable'>"
+				+"Success:Product moved<button aria-hidden='true' data-dismiss='alert' class='close' type='button'> × </button>")
+			}else{
+				$(event.target).before("<div class='alert alert-danger danger-dismissable'>"
+				+"Faild!<button aria-hidden='true' data-dismiss='alert' class='close' type='button'> × </button>")
+			}
+		});
+	})*/
+	$('#add form').submit((event)=>{
+		event.preventDefault();
+		data=$(event.target).serialize();
+		$.post(location.pathname,data).done((d)=>{
+			$(event.target).before("<div class='alert alert-success success-dismissable'>"
+				+"Success:Product moved<button aria-hidden='true' data-dismiss='alert' class='close' type='button'> × </button>")
+		}).fail((err)=>{
+			$(event.target).before("<div class='alert alert-danger danger-dismissable'>"
+				+"Faild!<button aria-hidden='true' data-dismiss='alert' class='close' type='button'> × </button>")
+		})
+	})
+	$("[name='CatN']").change((event)=>{
+		html=""
+		for(var i=0 ;i<parseInt(event.target.value);i++){
+			html+="<div class='col-sm-2'>"
+			"<input type='text' name=catN"+String(i)+">"+
+			"</div><div class='col-sm-2'>"+
+			"<input type='text' name=catD"+String(i)+"></div>"
+		}
+		$("#specs").html(html);
+	})
+</script>	
+</body>
+</html>
+
+
+                      
+						

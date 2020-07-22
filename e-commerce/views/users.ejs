@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<%include inc%>
+  <body>
+  <div class="modal fade " id="Do">
+      <div class="modal-dialog">
+          <div class="modal-content ">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h2>What to Do</h2>
+              </div>
+              <div class="modal-body">
+                  <ul class="nav nav-tabs" role="tablist">
+                  <li class="active"><a href="#login"role="tab" data-toggle="tab">Login</a></li>
+                  <li ><a href="#register" aria-controls="profile" role="tab" data-toggle="tab">Register</a></li>
+                  </ul>
+                  <div class="tab-content">
+                     <div class="tab-content">
+                              <div role="tabpanel" class="tab-pane active" id="login">
+                                <form class="form-horizontial" method="post" action="/login">
+                               <div class="alert">
+                               <% var errors=flash["messages"];%>
+                               <%if(flash.action=="login"){%>
+                                 <% for(var i in errors){%>
+                                    <div class="alert <%= flash.type %>">
+                                      <%= errors[i].msg %>
+                                    </div>
+                                  <%}%> 
+                                  <%}%>
+                               </div>
+                                  <div class="form-group input-sm">
+                                  <label for="User" class="control-label col-sm-4">UserName</label>
+                                      <div class="col-sm-6">
+                                        <input type="text" name="User" class="form-control" placeholder="UserName">
+                                      </div>
+                                  </div>
+                                  
+                                   <div class="form-group input-sm">
+                                  <label for="Pass" class="control-label col-sm-4">Password</label>
+                                      <div class="col-sm-6">
+                                        <input type="password" name="Pass" class="form-control" placeholder="Password">
+                                      </div>
+                                  </div>
+                                  
+                                    <div class="form-group input-sm">
+                                  <label for="Type" class="control-label col-sm-4">Type</label>
+                                      <div class="col-sm-6">
+                                        <select class="form-control" name="Type">
+                                          <option>owner</option>
+                                          <option>client</option>
+                                        </select>
+                                      </div>
+                                  </div>
+                                    <div class="modal-footer">
+                                    <div class="form-group input-sm">
+                                        <div class="col-sm-12">
+                                        <input class="btn btn-primary" type="submit" value="Go">
+                                      </div>
+                                    </div>
+                                    </div>
+                              
+                                </form>
+                              </div>
+                              <div role="tabpanel" class="tab-pane" id="register">
+                                  <div class="alert">
+                                  <%if(flash.action=="register"){%>
+                                    <% for(var i in errors){%>
+                                    <div class="alert <%= flash.type %>">
+                                      <%= errors[i].msg %>
+                                    </div>
+                                  <%}%> 
+                                  <%}%>
+                                  </div>
+                                  <form class="form-horizontial" method="post" action="/register">
+                                  <fieldset>
+                                     <div class="form-group input-sm">
+                                  <label for="UserName" class="control-label col-sm-4">UserName</label>
+                                      <div class="col-sm-6">
+                                        <input type="text" name="UserName" class="form-control" placeholder="UserName">
+                                      </div>
+                                  </div>
+                                   <div class="form-group input-sm">
+                                  <label for="Pass" class="control-label col-sm-4">Password</label>
+                                      <div class="col-sm-6">
+                                        <input type="password" name="Pass" placeholder="Password" class="form-control">
+                                      </div>
+                                  </div>
+                                   <div class="form-group input-sm">
+                                  <label for="Email" class="control-label col-sm-4">Email</label>
+                                      <div class="col-sm-6">
+                                        <input type="email" name="Email" placeholder="email" class="form-control">
+                                      </div>
+                                  </div>
+                                  <div class="form-group input-sm">
+                                  <label for="Type" class="control-label col-sm-4">Type</label>
+                                      <div class="col-sm-6">
+                                        <select class="form-control" name="Type">
+                                          <option>owner</option>
+                                          <option>client</option>
+                                        </select>
+                                      </div>
+                                  </div>
+                                  </fieldset>
+                                  <div class="modal-footer">
+                                    <div class="form-group input-sm">
+                                        <div class="col-sm-12">
+                                        <input class="btn btn-primary" type="submit" value="Go">
+                                      </div>
+                                    </div>
+                                        
+                                    </div>
+                                  </form> 
+                              </div>
+                              </div>
+                            </div>
+                  
+              </div>
+            </div>
+        </div>
+  </div>
+     <script type="text/javascript">
+     $("#Do").modal();
+     $("#Do").on('hidden.bs.modal',(event)=>{
+      location.assign("/");
+     })
+     sessionStorage.clear();
+     $("#register input").change(()=>{
+         inputs={User:CryptoJS.SHA1($("input[type=text]").val()).toString(CryptoJS.enc.HEX),Pass:CryptoJS.SHA512($("input[type=password]").val()).toString(CryptoJS.enc.HEX),Email:CryptoJS.SHA256($("input[type=email]").val()).toString(CryptoJS.enc.HEX)}
+         $('input[name='+$("input").attr("name")+']').attr("value",inputs[$("input").attr("name")]);
+         })
+     </script>
+  </body>
+</html>

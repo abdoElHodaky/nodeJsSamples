@@ -1,0 +1,45 @@
+<style type="text/css">
+	#preloader  {
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-color: #fefefe;
+     z-index: 9999;
+    height: 100%;
+ }
+
+#status  {
+     width: 200px;
+     height: 200px;
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     border: 15px solid #fea;
+     border-top:12px solid hsl(30,150%,50%);
+     border-bottom:12px solid hsl(40,150%,50%);
+     animation:spin 1s  ease-in infinite both;
+     border-radius: 50%;
+     margin: -100px 0 0 -100px;
+ }
+
+@keyframes spin {
+	0%{
+		transform:rotate(0deg);
+	}
+	100%{transform:rotate(360deg);}
+}
+</style>
+<body>
+	 <div id="preloader">
+  <div id="status">&nbsp;</div>
+</div>
+<script type="text/javascript">
+            jQuery(window).ready(function() {
+        // will first fade out the loading animation
+            jQuery("#status").fadeOut();
+        // will fade out the whole DIV that covers the website.
+            jQuery("#preloader").delay(1000).fadeOut("slow");
+        });
+</script>

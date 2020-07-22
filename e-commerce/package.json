@@ -1,0 +1,44 @@
+{
+  "name": "node",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "braintree": "^2.2.0",
+    "cookie-parser": "~1.4.3",
+    "credit-card": "^3.0.1",
+    "db-filters": "^0.2.2",
+    "debug": "~2.2.0",
+    "ejs": "~2.5.2",
+    "express": "~4.14.0",
+    "express-flash": "0.0.2",
+    "express-validator": "^3.2.0",
+    "helmet-csp": "^2.4.0",
+    "jquery": "^3.2.1",
+    "jsdom": "^11.0.0",
+    "materialize-css": "^0.98.2",
+    "mongoose": "^4.9.7",
+    "morgan": "~1.7.0",
+    "multer": "^1.3.0",
+    "node-dbi": "^0.7.1",
+    "node-sass-middleware": "0.9.8",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "serve-favicon": "~2.3.0",
+    "socket.io": "^2.0.3",
+    "sqlite3": "^3.1.8",
+    "xtend": "^4.0.1"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "express-session": "^1.15.2",
+    "helmet": "^3.6.1",
+    "jsonwebtoken": "^7.4.0",
+    "knex": "^0.13.0",
+    "multer": "^1.3.0",
+    "mysql": "^2.13.0"
+  }
+}

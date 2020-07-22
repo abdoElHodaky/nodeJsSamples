@@ -1,0 +1,557 @@
+<%-include("inc",{title:"Products"})%>
+ <div class="row ">
+ <% var errors=flash["messages"]; %>
+ <nav class="navbar navbar-default  navbar-fixed-top ">
+              <div class="container">
+                <div class="navbar-header">
+                 <a class="navbar-brand glyphicon glyphicon-home" href="/"></a>
+                  <a class="navbar-brand" href="/<%=shopName %>/products"><%= shopName %></a>
+                </div>
+                <div class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav navbar-left  ">
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cats<span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                      <div class="row">
+                         <%include cat %>
+                      </div>
+                      </ul>
+                    </li>
+                    </ul>
+                      <ul class="nav navbar-nav navbar-right">
+                        <li><a class="glyphicon glyphicon-shopping-cart btn btn-secondary" def='cart'></a></li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a class="btn btn-secondary" id="compare">Compare</a></li>
+                            <li><a  class="btn btn-secondary" id="collect">Collect</a></li>
+                            <li><a  class="btn btn-secondary" id="Bill">CreateBill</a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="/<%=user%>/settings">Settings</a></li>
+                              <li><a href="" id="logout">Logout</a></li>
+                            </ul>
+                        </li>
+                      </ul>
+                    
+                  </ul>
+                </div>
+              </div>
+        </nav>
+            <div class="row col-xs-offset-0 ">
+                <%include product %>
+                <div class="row  col-lg-2 col-md-7 col-xs-7 " def="sidebar-right">
+                </div>
+            </div>
+</div>
+<div class="modal fade" id="edit">
+        <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="modal-title">
+            <p class="lead">Editing</p>
+        </div>
+        <div class="modal-body">                
+             </div>
+            </div>
+            </div>
+            </div>
+</div>
+<div class="modal" id="add">
+        <div class="modal-dialog ">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <div class="modal-title">
+                      <p class="lead">Adding</p>
+                  </div>
+              </div>
+              <div class="modal-body">
+                <div>
+
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                            <%if(type=="owner"){%>
+                              <li role="presentation" class="active"><a href="#Product" role="tab" data-toggle="tab" >Product</a></li>
+                              <li role="presentation"><a href="#Cat" role="tab" data-toggle="tab">Cat</a></li>
+                              <li role="presentation"><a href="#Spec" role="tab" data-toggle="tab">Spec</a></li>
+                              <%}%>
+                            </ul>
+                            
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                            <%if(type=="owner"){%>
+                            <div role="tabpanel" class="tab-pane active" id="Product">
+                                <form class="form-horizontial" method="post">
+                               
+                                  <div class="form-group input-sm">
+                                  <label for="ProductName" class="control-label col-sm-4">ProductName</label>
+                                      <div class="col-sm-6">
+                                        <input type="text" name="ProductName" class="form-control">
+                                      </div>
+                                  </div>
+                                  
+                                   <div class="form-group input-sm">
+                                  <label for="ProductPrice" class="control-label col-sm-4">Price</label>
+                                      <div class="col-sm-6">
+                                        <input type="number" name="Price" class="form-control">
+                                      </div>
+                                  </div>
+                                  
+                                    <div class="form-group input-sm">
+                                  <label for="Cat" class="control-label col-sm-4">Cat</label>
+                                      <div class="col-sm-6">
+                                        <select class="form-control">
+                                          <%for(var i in Cats){%>
+                                          <option><%= Cats[i].Cat %></option>
+                                          <%}%>
+                                        </select>
+                                      </div>
+                                  </div>
+                                  <div class="form-group input-sm">
+                                  <label for="Logo" class="control-label col-sm-4">Logo</label>
+                                      <div class="col-sm-6">
+                                      <img src="http://placehold.it/200x200" class="img-responsive" id="ALogo">
+                                      </div>
+                                      <div class="divider"></div>
+                                  </div>
+                                   <div class="form-group input-sm">
+                                  <label for="ProductDesc" class="control-label col-sm-4">ProductDesc</label>
+                                      <div class="col-sm-6">
+                                      <textarea name="ProductDesc" class="form-control"></textarea> 
+                                      </div>
+                                  </div>
+                                  
+                                  
+                                    <div class="modal-footer">
+                                    <div class="form-group input-sm">
+                                        <div class="col-sm-12">
+                                        <button class="btn btn-primary glyphicon glyphicon-floppy-disk btn-lg" type="submit"></button>
+                                      </div>
+                                    </div>
+                                        
+                                    </div>
+                              
+                                </form>
+                              </div>
+                             <%}%>
+                            <div role="tabpanel" class="tab-pane " id="Spec">
+                                <form class="form-horizontial" method="post">
+                               
+                                  <div class="form-group input-sm">
+                                  <label for="ProductName" class="control-label col-sm-4">ProductName</label>
+                                      <div class="col-sm-6">
+                                        <input type="text" name="ProductName" class="form-control" placeholder="ProductName">
+                                      </div>
+                                  </div>
+                                    <div class="form-group input-sm">
+                                    <label for="SpecName" class="control-label col-sm-4">SpecName</label>
+                                        <div class="col-sm-6">
+                                          <input type="text" name="SpecName" class="form-control" placeholder="SpecName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group input-sm">
+                                    <label for="SpecValue" class="control-label col-sm-4">SpecValue</label>
+                                        <div class="col-sm-6">
+                                          <input type="text" name="SpecValue" class="form-control" placeholder="SpecValue">
+                                        </div>
+                                    </div>
+                                  <div class="modal-footer">
+                                    <div class="form-group input-sm">
+                                        <div class="col-sm-12">
+                                        <button class="btn btn-primary glyphicon glyphicon-floppy-disk btn-lg" type="submit"></button>
+                                      </div>
+                                    </div>
+                                        
+                                    </div>
+                              
+                                </form>
+                              </div>
+                              
+                              <div role="tabpanel" class="tab-pane" id="Cat">
+                                  <form class="form-horizontial" method="post">
+                                  <fieldset>
+                                     <div class="form-group input-sm">
+                                  <label for="CatName" class="control-label col-sm-4">CatName</label>
+                                      <div class="col-sm-6">
+                                        <input type="text" name="CatName" class="form-control" placeholder="Name">
+                                      </div>
+                                  </div>
+                                   <div class="form-group input-sm">
+                                  <label for="CatDesc" class="control-label col-sm-4">Desc</label>
+                                      <div class="col-sm-6">
+                                        <textarea name="CatDesc" class="form-control" placeholder="Description"></textarea>
+                                      </div>
+                                  </div>
+
+                                  </fieldset>
+                                  <div class="modal-footer">
+                                    <div class="form-group input-sm">
+                                        <div class="col-sm-12">
+                                        <button class="btn btn-primary glyphicon glyphicon-floppy-disk btn-lg" type="submit"></button>
+                                      </div>
+                                    </div>
+                                        
+                                    </div>
+                                  </form> 
+                              </div> 
+                            </div>
+                          </div>  
+              </div>
+              
+          </div>
+        </div>
+</div>
+<div id="SBill" class="modal fade " role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Bill</h4>
+      </div>
+      <div class="modal-body row">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div id="SpecsM" class="modal fade " role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Specs</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div id="CompareP" class="modal fade " role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Comparison</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div id="ViewPM" class="modal fade " role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Product</h4>
+      </div>
+      <div class="modal-body">
+        <div def="conv">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div id="cartM" class="modal fade " role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Product</h4>
+      </div>
+      <div class="modal-body">
+      <table class="table">
+        <thead>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Action</th>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <button class="btn btn-primary" def="opC">Collect</button>
+        </tfoot>
+      </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<style type="text/css">
+      body { padding-top: 70px; }
+      [def=hasmenu]{
+        cursor: pointer;
+      }
+      [def=sidebar-right]{position: fixed; right:1.8% }
+      #compare{
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAACPVBMVEUAAABEREBEREBEREBEREBEREBEREBEREBEREAkJCQiHiAkICAlISElISInJyZEREBEREBEREAkJCQjHR4jHR4vLy0jISEiHx8hHiAjHyAhHR4hHiAjICAmIyMnJCMmJCQhISElHx8kISIlJSUiIiIjHSAkHh4jHiEhHSAiHh4lICAjHx8jHyAjHyAlISIlIiIlISIjHiAjHyAhISEjHh4uLiwjHx8jHyAjHyAoJSQlJSUcHBwiHyAjHyAlIiIjHSAhHh4hHh4pIyYiHx8hHR4hHyAfHx8iHyAlHyAqJiUlISIkICAAAAAgICAmICA4ODUiHx8iHSIjHR4iHiAiIiIlISInJSUjHx8jHh4qKiokJCQjHx8iHx8iHx8jHyAtLSwlIiElICI7OzgfHx8hHh4iHiAiHiAhHx8eHh4fHx0kICIlIiIlISIqJiUhHx8nHR0qJiklISIkICA+PjwjIiIkIiIAAAAjHx8iHx8jHyAiHx8jHx8/AD8lISMlISIoHCgmISEpJiUjHyAjHSAiHiArKyokHx8kHx8mIiMkHyIZGRciHSAjHiAjHiEjHR4iIiIkICIjHyAjHh4iHyAiHyAlIiMlIiMkIiEhHh4iHx8iHx8iHiAiHSAhHx8iHx8lIiEjICAiGyIkHiQoIyUZGRkhHSAkICMlICIxMS8jICAhHR4lHx8tKCclISIkISEjHR4jHyAoIiQwMC4mIyIjHh4hHiAuFxcjHh4jISInIyMvLy4lISIlISIjHyAjHyAvAqAKAAAAu3RSTlMAAwQBBwgBCgsOf8LFhA8NDwIV2NgdaGi38/K3aXBxbxNk4BEP32Nkv8A3yszMz8/unu02MilD/f1MHgne+LZO4uJWsvndCH7pRvxJAycqEEk86Hwg9mmS2QYH2pNg9iquyg8Q6nV26xEEyq79PvMaQP5CD9eeAsukpJvTBHXvFjhH/u9uHfFspdEFz59s8BaJ/qCcnaGitVNSsoWMWliPVyUlXQq/wugTT/IpNP5Y4fNfJYDJrwvJu4EinuZO9AAAAg9JREFUOMtjYCASMDIx4mExMLOwsjDjZDEwsLFzsLOBGJxc3Dy8fKhiIDa/AL8giCEkvHvP7r0iQkCmIEwMZBa7gKiYOAhI7N4jKbVvn7S4uIysnLwCzAEsHPyK+0Bg7+49SsoqqhDW7r1qMLeysguqQ+V3azAwaELl96mDTAf6g4mFjUFLW0dHV0/fYO8+Q8N9+4z09PV0dbSNga5jYQKaAPaLiYypAL+ZOcgkC0sBfitxE5BL2VlhIWFtY2sHdLW9w759jk5A9zu7uLoBfcLBAnOou4enlzeQ9vH18wfKB5gHBgUDfcoOC6mQ0DD+8IhImP+jomMYYuPiBfhhISWYkJgkmJySCguftPQMhsysbHhIsVnm5ALZann5EPn8PHWgyoLCIlhIFpeUgtSWlVdAwreyvAyksqq6BhqStXX1YEZDYSNIPrBJC2ySUHMLJCRb29ohLuHv6OwCeqS7BxpTvX394JCcMHHSZCCYMnXa9L0zGBhm7ps1ddrUKUCRSU2zwSE5BxZTwPCfy8AwD8ICi80Hh+QChPy+hQwMixDyuxeDQ3JJEFx+Kcgly+Dyy1dAQnJlE1R+1WpQSK2RgsqvdYKF5DpJsPx6Y0hIGjuA5TdshIck/6bNElu2ii+BpcRt4lu379i5CylNQkMdkVKR0ywoTeKVB6VJnPKwNIlLHilNIuUkZBYrwdxJOHcDAHo+xTlx0XsGAAAAAElFTkSuQmCC');
+        background-repeat: no-repeat;}
+        #collect{background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAABXFBMVEUAAABEREBEREAAAAAAAAACAgEkJCJEREBEREBEREAAAAAAAAAAAAAAAAACAgICAgIAAAAAAABEREBEREBEREAAAAAAAAAAAAAAAABEREBEREArKygAAAAAAAAAAAABAQE/PzxEREAfHx0AAAAGBgYAAAABAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANDQwHBwcEBAQBAQEAAAAHBwcEBAQAAAAAAAAAAAAaGhgAAAAAAAAAAAACAgIBAQEAAAAAAAAKCgkAAAALCwsBAQEGBgYBAQEBAQEHBwcGBgYAAAABAQEFBQQFBQUICAgJCQkDAwMAAAAAAAADAwMVFRMXFxYtLSsCAgIFBQQFBQUCAgEAAAAAAAACAgINDQwPDw4DAwMUFBMhIR8AAAACAgIAAAAAAAADAwIDAwMAAAAEBAMEBATKOOlPAAAAa3RSTlMAAwQDEhIGAQcIPJXV+/rVkzkBCgs6ycU2DQ8DhP79fw4CBKKjjIVGPwLX0QFQ77y67kqt/HoGCYH9p2956x3d4CM1nJ8wPJA3RDhFjZKRPZOWLLy/wG5yKgggISwtFDmQlTkHHB0iIxEWDVDG7JUAAAGLSURBVDjLzZNnU8JAEIYPREmwJ1guihIVK4q994bGgooVsAf7geD/n/FC3gsODjN+dL/k2CfZ3XuYJeSP4XK7rEeFp7LKPhVzVnglWfISX3VN7ftHXX1DYzFnh6L6VaWpmTGWyX5mM4y1tNo5walG29oDnOfyX/kcf7KOzqBGdVFf1WhXN/vJ+aknKDiR/FQPlfKvfK8zv6zqfb95LtBvVef3cEvKwOBvzthQmCiSm1fwkmEnOxIZHXPeHNdV2TYxAT45NU3IzOwcKs1Tv1Tg4RF8v8B/6FRbRKclTbVNLYOvDBQ47VrFJGswtY6uGzbXySZm2sJFtzFVCJxEMdMOTO5i6hA4f8GuacDkHqbeBydR9DRgchdTH4j/5xA9DZiMwd8RuH6MngZMnkR4xE/PzsHpxWncSkUuhUki7ld6gsmyXJi8SiRT16lkwiO4J8GD525g0odbhcT3UZi8Rf1YOZPGPzLpY/ZO3SnYs3tru3g8wOSjaZrpp+enF7Gnr2nTivSb7Jj8scklp2/cB8sBxM14bQAAAABJRU5ErkJggg==');
+        background-repeat: no-repeat;}
+        #Bill{
+          background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAB5lBMVEUAAABEREBEREA6Ojo5NjY5NjY5Nzc3NzZEREBEREBEREA4ODg5Nzc3NTU3NTU3NTU3NjU5Nzc6NzZEREBEREA5Nzc3NjY6ODg4ODdEREBEREBEREA3Nzc5Nzc6ODg4Nzc6Ojo5Nzc5Nzc4Nzc2NjY5Nzc4Nzc5Nzc6ODg5NTU6OTg4Nzc5NTU4NTU4NTU5NjY5NjY4ODg5NTU3Nzc4Nzc5NjY5NjY6Nzc5NjY2NjY5Nzc5ODg5Nzc5ODg6ODg8OTg6ODg5Nzc8PDs3Nzc5NTU6ODg4ODg6OTg5OTg4NjY4NjY5ODc6ODdAQD48PDw4Nzc5Nzc3NTU3Nzc6ODg1NTU3Nzc4ODg4NjY5OTg5OTg6Nzc7ODc3Nzc5Nzc6ODg4ODhPT004Nzc4ODc4NTU4NTU5NjY5NzY5NzcAAAA4NjY6ODg5ODc6OjkqKio4Nzc5Nzc6Ojo8ODg5ODg3NTU5NTUzMzM6NjY3NzY5OTk4ODg8ODg5ODg5ODhAQD05Nzc4NjY3Nzc5NjY5Nzc5NjY7Ozo5NjY5NTU6ODc4ODg4NjZAQDw4NTU4Nzc5NTVAODc6Nzc5ODg6NzdHR0Q6NTU5Nzc3NjY4NTU5Nzc5NjU6NjY5Nzc5NjY5Nzc3Nzc/Pz85Nzc6ODc6ODhzpgFMAAAAn3RSTlMAAwQjdHZmDQEHCCTj++Dh4fCnCgv63IbVDQ8CxoWH1A14gccOed6Af8iAy7qsrbCx1b/Y0KSlqZchfNZ914Nm7ew9N7GI2oQxcXB3eR0Vi/7y04wY4bSMJTVkTVLMz8kFsCqQkZaXigF27IYsBrGuGlq9/NsKQiIfVku1tBRqZM+Nb4Qsu/ZlN40Qmb7kJVPSzBAwnden8eXloGJ0YAmRKNQXAAAB8klEQVQ4y2NgIBIwMjEyMLOAACsrK5hmYWMHikEBBycXJwc3Dy8fHx+/AD8fBAgKcXLA5IVFhIHyomIQFlRMXAIuLyklKc3NIyMrJg1igcWALDl5uH6IvIKiGLK8pBJMAacISF5ZhUFVDVleWh2qgJFLGCIvraGGLM8AUsAB9AcTyP2aQHlJLTVkeZACDk4moAkcDNrzdXT19A0MjZDlgQqkhbkgIWFsYmpmbm5uYYksD1QgKcIJcYaxFYr/oCwlaylomDAY22CRl5azlYSFlLGdvYMjBDg4AeWdXUAqXa2lYSHl5u7h6QUCnt4+vtJ+/mIBgUHByCHpZodkfkjofCBYEIYckm42SPaHz5+vHhEZFY0cksZWMbFAEBcXn8DAkDh/fhJ6SBpbOScnp6SmpaZnMDBkzp+flZ2DGpLGVkj+y81bsHBBQH4BSkhaIftfsrCoeP78klKUkCzTN9DX0wWBcpDKCpn58ytRQrKquiYvEQTycmpBJtXNn1+PEpJIIa3e0NjU7DhftAUlJJFiohUUTvPb2lFDsiMcBDqDu4Cpr6m7p7epTwo1JPtNQGDCxElgkyZPQUuToHBAiWn0kJxqhUWeQT0IHpLTpvf29s6YOaMXAqCswFkcsJAsne3lNWfOHC8IgLHmzgPmWJTcjZUFAOTJiGh2uosbAAAAAElFTkSuQmCC');
+          background-repeat: no-repeat;
+        }
+</style>  
+<script type="text/javascript">
+session=sessionStorage;
+session.setItem('client',"<%=user%>")
+var BillModel;
+$("#Bill").click((event)=>{
+    var Bill=session.getItem('client')+Math.random()*(new Date().getTime());
+    session.setItem("ops","[]");
+    session.setItem("oproducts","{}");
+    Bill=CryptoJS.MD5(Bill).toString(CryptoJS.enc.HEX)
+    BillModel=Bill;
+    session.setItem("Bill",BillModel);
+    setTimeout(function(){
+    r=$.post("/products/bill?shopName=<%= shopName %>",{BillModel:Bill})
+    r.done((data)=>{
+      //location.reload();
+    })
+  },1000);
+})
+$('[data-toggle="tooltip"]').tooltip()
+$("#logout").attr("href",'/logout?log='+CryptoJS.HmacSHA1("true",(Math.floor(10+15)).toString()+session.client).toString(CryptoJS.enc.Hex)).click(()=>{
+  session.clear();
+});
+/*if($("#ViewPM .modal-body .alert").text().trim()!==""||null){
+    $("#ViewPM").modal();
+}*/
+$("[def=ViewP]").click((event)=>{
+  event.preventDefault();
+  r=$.get(event.target.href)
+  r.done((data)=>{
+    $("#ViewPM .modal-body [def=conv]").html(data);
+    $("#ViewPM").modal();
+  })
+})
+
+$('menuitem a.btn-primary').click((event)=>{
+    event.preventDefault();
+    r=$.get(event.target.href)
+    r.done((data)=>{
+      $(".modal-body").html(data);
+      $('#edit form').attr('action',event.target.href)
+      $('#edit').modal();
+    })
+})
+var blob;
+$("#ALogo").on("dragover dragenter dragleave drop",(event)=>{
+      event.preventDefault();
+      file=event.originalEvent.dataTransfer.files[0]
+      var reader=new FileReader();
+      reader.readAsDataURL(file)
+      reader.onload=()=>{
+        blob=reader.result;
+        $('#ALogo').attr("src",blob);
+        $(".card input[type=hidden]").val(blob);
+      }
+    })
+$("#ELogo").on("dragover dragenter dragleave drop",(event)=>{
+      event.preventDefault();
+      file=event.originalEvent.dataTransfer.files[0]
+      var reader=new FileReader();
+      reader.readAsDataURL(file)
+      reader.onload=()=>{
+        blob=reader.result;
+        $('#ELogo').attr("src",blob);
+        $("#edit input[type=hidden]").val(blob);
+      }
+    })
+$("#Spec form").submit((event)=>{
+  event.preventDefault();
+  $.post("/<%= shopName %>/products/Specs/add",{
+    ProductName:$('#Spec input[name=ProductName]').val(),
+    SpecName:$('#Spec input[name=SpecName]').val(),
+    SpecValue:$('#Spec input[name=SpecValue]').val()
+  })
+})
+$('#Product form').submit((event)=>{
+    event.preventDefault();
+    if ($('#ALogo').width()<=200 && $("#ALogo").height()<=200) {
+    $.post("/<%= shopName %>/products/add",{
+        ProductName:$('#Product input[name=ProductName]').val(),
+        Price:$('#Product input[type=number]').val(),
+        ProductThumbnail:blob,
+        ProductDesc:$('#Product textarea[name=ProductDesc]').val(),
+        Cat:$("#Product select").val()
+    })
+  }
+    
+})
+$('#Cat form').submit((event)=>{
+    event.preventDefault();
+    $.post("/cats/add?shopName=<%= shopName %>",{
+        Cat:$('#Cat input[name=CatName]').val(),
+        CatDesc:$('#Cat textarea[name=CatDesc]').val()
+    })
+    
+})
+
+$("[def=SpecsP]").click((event)=>{
+  event.preventDefault();
+  r=$.get(event.target.href);
+  r.done((data)=>{
+     $("#SpecsM .modal-body").html(data);
+     $("#SpecsM").modal();
+  })
+})
+var q=0;
+$("[def=inc]").change((event)=>{
+  q=event.target.value
+  if(q>=1){$('.thumbnail').has(event.target).attr("q",q);}
+})
+var num=0;
+cart=session.oproducts?session.oproducts:"{}"
+ops=session.ops?session.ops:"[]"
+cart=JSON.parse(cart)
+ops=JSON.parse(ops)
+/*$("menuitem a.btn-warning[def=AddtoCart]").click((event)=>{
+    event.preventDefault();
+    var num=parseInt($(".check input:checked").length);
+         href=event.target.href
+         if (BillModel!=""&&BillModel!=null) {
+        url=href.substring(0,36)+"/"+session.getItem("Bill")+"/"+href.substring(36)+"&q="+q.toString();
+         $.get(url)
+       }
+})*/
+$("#collect").click((event)=>{
+  event.preventDefault();
+  var checks=$(".check input[type=checkbox]");
+  var checked=$(".check input:checked");
+  num+=checked.length;
+  BillModel=session.Bill;
+  var urls=[];
+  $("dir").each((a,b)=>{
+      c=$.trim(b.innerText)
+      s=[]
+      for(i in c){
+        s[i]=String.fromCharCode(c.charCodeAt(i)-5)
+      }
+      urls[a]=decodeURIComponent(s.join(""))
+  })
+  if (BillModel!=""&&BillModel!=null) {
+      for(i in urls){
+         href=urls[i];
+         url=href.substring(0,13)+session.getItem("Bill")+"/"+href.substring(13)+"&q="+$(".thumbnail").eq(i).attr("q");
+        for(j in checked ){
+          if (checked[j].value==checks[i].value) {
+              r=$.get(url);
+           break;
+          };
+        }
+      }
+    setTimeout(()=>{
+    r=$.get("/<%=shopName%>/bill");
+      r.done((data)=>{
+        $("#SBill .modal-body").html(data);
+        $("#SBill").modal();
+      })
+    }, 10000);
+  }
+
+})
+/*$(".navbar-header #buy").click((event)=>{
+  event.preventDefault();
+  href="/bill/"+BillModel+"/"+BillName.toString();
+  $.get(href).done((data)=>{
+    $("#SBill .col-sm-12.col-md-10").html(data)
+  });
+  $("#SBill").modal();
+})*/
+$("#compare").click((event)=>{
+  event.preventDefault();
+  var checks=$(".check input[type=checkbox]");
+  var checked=$(".check input:checked");
+  var num=checked.length;
+  compare=[];
+  for(i=0;i<checks.length;i++){
+    for(j=0;j<checked.length;j++){
+      for (k=0;k<((num==3)||(num==2))?num:0;k++){
+        if ((checked[j].value==checks[i].value)&&k<=num) {
+            compare.push(checked[j].parentNode.parentNode.querySelector("h4 a").innerText)
+        }
+        else{break;} 
+      }
+    }
+  }
+  if ((num==3)||(num==2)) {
+    r=$.get("/<%=shopName%>/products/compare/"+compare);
+    r.done((data)=>{
+        if (data!==""||data!==null) {
+           $("#CompareP .modal-body").html(data);
+        }
+    })
+  }
+  else{
+    $("#CompareP .modal-body").html("<div class='alert-danger alert'>More Than 3 Not Allowed.</div>");
+  }
+  $("#CompareP").modal();
+});
+$("[def=cart]").click((event)=>{
+  oproducts=cart;
+    if (oproducts!==undefined && oproducts!=={}) {
+      html="";
+      for(i in oproducts)
+      {
+            ops=oproducts[i]
+            html+="<tr>"+"<td>"+i.toString()+"</td>"+"<td>"+ops[ops.indexOf('q')+2]+"</td>"+"<td>"+"<button class='btn btn-danger glyphicon glyphicon-remove' def='delop' ></button>"+"</td></tr>"
+         
+      }
+      $("#cartM tbody").html(html);
+      $("#cartM").modal();
+    $("[def=delop]").click((event)=>{
+      $(event.target.parentNode.parentNode).remove();
+      delete oproducts[$(event.target.parentNode.parentNode).children('td')[0].innerText]
+    })
+  }
+})
+$("[def=opC]").click((event)=>{
+  oproducts=cart;
+  BillModel=session.Bill;
+  if (BillModel!=null && BillModel!="") 
+  {
+      for(i in oproducts)
+      {
+            $.get(oproducts[i])
+      }
+      $("#cartM").modal('hide');
+      setTimeout(()=>{
+        r=$.get("/<%= shopName %>/bill");
+          r.done((data)=>{
+            $("#SBill .modal-body").html(data);
+            $("#SBill").modal();
+          })
+        }, 2000);
+ }
+})
+</script>
