@@ -11,7 +11,7 @@
     "cookie-parser": "~1.4.3",
     "credit-card": "^3.0.1",
     "db-filters": "^0.2.2",
-    "debug": "~2.2.0",
+    "debug": "~4.1.1",
     "ejs": "~2.5.2",
     "express": "~4.14.0",
     "express-flash": "0.0.2",
