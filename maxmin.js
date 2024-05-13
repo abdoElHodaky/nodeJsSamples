@@ -1,4 +1,4 @@
-function maxProfit(price){
+function maxminProfit(price){
   
    let maxcost=0
    let min=price[0]
@@ -16,4 +16,4 @@ let price = [44, 30, 24, 32, 35, 30, 40, 38,
 15]
     let n = price.length; 
   
-    console.log(maxProfit(price)); 
+    console.log(maxminProfit(price)); 
